@@ -28,3 +28,6 @@ main = hspec $ do
 		describe "escaped character cases" $ do
 			it "matches that particular character" $ do
 				matchGlob "\\s" "s" `shouldBe` True
+		describe "literal matching" $ do
+			it "treats all non-special characters as literal" $ do
+				matchLiteral "\\*?[s" "s" `shouldBe` True
